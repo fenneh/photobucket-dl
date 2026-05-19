@@ -1,0 +1,49 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "photobucket-dl"
+version = "0.1.0"
+description = "Download your own photos from Photobucket"
+readme = "README.md"
+license = "MIT"
+authors = [{ name = "fenneh" }]
+requires-python = ">=3.10"
+keywords = ["photobucket", "downloader", "scraper", "backup", "graphql"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: End Users/Desktop",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Internet :: WWW/HTTP",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Utilities",
+]
+dependencies = [
+    "requests>=2.31",
+]
+
+[project.optional-dependencies]
+browser = ["browser-cookie3>=0.19"]
+
+[project.scripts]
+photobucket-dl = "photobucket_dl.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/fenneh/photobucket-dl"
+Repository = "https://github.com/fenneh/photobucket-dl"
+Issues = "https://github.com/fenneh/photobucket-dl/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["photobucket_dl"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
